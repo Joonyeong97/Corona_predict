@@ -13,12 +13,12 @@ import Main
 
 def corona_prdict():
     df_korea = pd.read_csv('corona.csv')
-    df_korea = df_korea[['date','patient']]
-    df_prophet = df_korea.rename(columns={
-        'date': 'ds',
-        'confirmed': 'y'
-    })
-
+    df_prophet = df_korea[['date','patient']]
+    # df_prophet = df_korea.rename(columns={
+    #     'date': 'ds',
+    #     'confirmed': 'y'
+    # })
+    df_prophet.columns = ['ds','y']
 
     # a = np.arange(0.8, 1.01, 0.1)
     # b = np.arange(0.1, 0.3, 0.1)
@@ -62,4 +62,4 @@ def corona_prdict():
     date = time.strftime('%Y%m%d', time.localtime(time.time()))
 #    plotly.offline.plot(fig2, filename='corona_predict/corona19_{}.html'.format(date))
 #     plt.imshow(a)
-    plt.savefig(Main.PATH+"{}.png".format(date))
+    plt.savefig(Main.PATH + "{}.png".format(date))
